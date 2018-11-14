@@ -60,12 +60,7 @@ public class Tablero extends JPanel{
 		//--CREAR TABLERO
 		crearTablero();
 		
-		
-		
-		
-		
 	}
-	
 	
 	//----METODOS----
 	
@@ -75,7 +70,6 @@ public class Tablero extends JPanel{
 		
 		for(int x = 0;x<11;x++)
 		{
-			
 			switch(x)
 			{
 				case 0: letra[x] = new JLabel("", SwingConstants.CENTER);break;
@@ -111,9 +105,7 @@ public class Tablero extends JPanel{
 				boton[x] = new Boton("");
 				boton[x].setSize(25, 25);
 				
-			
 				add(boton[x]);
-			
 		}
 		
 		JPanel panelrotar = new JPanel();
@@ -126,7 +118,6 @@ public class Tablero extends JPanel{
 		rotar.setBackground(Color.cyan);
 	
 		panelrotar.add(rotar);
-	
 	}
 
 
@@ -141,7 +132,6 @@ public class Tablero extends JPanel{
 			boton[x].addMouseListener(e1);
 			
 			boton[x].addKeyListener(e2);
-			
 		}
 		
 	}
@@ -181,69 +171,61 @@ public class Tablero extends JPanel{
 			{
 				for(int y=0;y<=10-n_barcos;y++)
 				{
-					
-							if(objeto==boton[x] && numero==y)
+					if(objeto==boton[x] && numero==y)
+					{
+						for(int w = 0;w<n_barcos;w++)
+						{
+							if(contador==0)
 							{
-								
-								for(int w = 0;w<n_barcos;w++)
+								if(!boton[x+contador].getActivo())
 								{
-									
-									if(contador==0)
-									{
-										if(!boton[x+contador].getActivo())
-										{
-											boton[x+contador].setColorEleccionVerde();
-											boton[x+contador].setIluminado(true);
-											boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
-										}
-										else
-										{
-											bandera++;
-										}
-										
-									}
-									else if(contador==n_barcos-1)
-									{
-										if(!boton[x+contador].getActivo())
-										{
-											boton[x+contador].setColorEleccionVerde();
-											boton[x+contador].setIluminado(true);
-											boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));	
-										}
-										else
-										{
-											bandera++;
-										}
-									}
-									else
-									{
-										if(!boton[x+contador].getActivo())
-										{
-											boton[x+contador].setColorEleccionVerde();
-											boton[x+contador].setIluminado(true);
-											boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
-										}
-										else
-										{
-											bandera++;
-										}
-									}
-									
-									
-									contador++;
+									boton[x+contador].setColorEleccionVerde();
+									boton[x+contador].setIluminado(true);
+									boton[x+contador].setBorder(
+										BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
+								}
+								else
+								{
+									bandera++;
 								}
 								
 							}
-					
+							else if(contador==n_barcos-1)
+							{
+								if(!boton[x+contador].getActivo())
+								{
+									boton[x+contador].setColorEleccionVerde();
+									boton[x+contador].setIluminado(true);
+									boton[x+contador].setBorder(
+										BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));	
+								}
+								else
+								{
+									bandera++;
+								}
+							}
+							else
+							{
+								if(!boton[x+contador].getActivo())
+								{
+									boton[x+contador].setColorEleccionVerde();
+									boton[x+contador].setIluminado(true);
+									boton[x+contador].setBorder(
+										BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
+								}
+								else
+								{
+									bandera++;
+								}
+							}
+								
+							contador++;
+						}
+					}
 				}
 			}
-			
-			
+		}		
 		}
-
-				
-		}
-		
 		
 
 		if(bandera==0)
@@ -263,18 +245,15 @@ public class Tablero extends JPanel{
 		}
 		else
 		{
-			
 			for(int x = 0; x<100;x++)
 			{
 				
-					if(boton[x].getIluminado())
-					{
-						boton[x].setIluminado(false);
-					}
+				if(boton[x].getIluminado())
+				{
+					boton[x].setIluminado(false);
+				}
 				
 			}
-			
-			
 			
 			return false;
 		}
@@ -296,69 +275,58 @@ public class Tablero extends JPanel{
 			{
 				for(int y=n_barcos-1;y<10;y++)
 				{
-					
-							if(objeto==boton[x] && linea==y)
+					if(objeto==boton[x] && linea==y)
+					{
+						for(int w = 0;w<n_barcos;w++)
+						{
+							if(contador==0)
 							{
-								
-								for(int w = 0;w<n_barcos;w++)
+								if(!boton[x-contador].getActivo())
 								{
-								
-									if(contador==0)
-									{
-										if(!boton[x-contador].getActivo())
-										{
-											boton[x-contador].setColorEleccionVerde();
-											boton[x-contador].setIluminado(true);
-											boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));	
-										}
-										else
-										{
-											bandera++;
-										}
-									}
-									else if(contador/10==n_barcos-1)
-									{
-										if(!boton[x-contador].getActivo())
-										{
-											boton[x-contador].setColorEleccionVerde();
-											boton[x-contador].setIluminado(true);
-											boton[x-contador].setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
-										}
-										else
-										{
-											bandera++;
-										}
-									}
-									else
-									{
-										if(!boton[x-contador].getActivo())
-										{
-											boton[x-contador].setColorEleccionVerde();
-											boton[x-contador].setIluminado(true);
-											boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
-										}
-										else
-										{
-											bandera++;
-										}
-									}
-									
-									
-									
-									contador+=10;
+									boton[x-contador].setColorEleccionVerde();
+									boton[x-contador].setIluminado(true);
+									boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));	
 								}
-								
+								else
+								{
+									bandera++;
+								}
 							}
-					
+							else if(contador/10==n_barcos-1)
+							{
+								if(!boton[x-contador].getActivo())
+								{
+									boton[x-contador].setColorEleccionVerde();
+									boton[x-contador].setIluminado(true);
+									boton[x-contador].setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
+								}
+								else
+								{
+									bandera++;
+								}
+							}
+							else
+							{
+								if(!boton[x-contador].getActivo())
+								{
+									boton[x-contador].setColorEleccionVerde();
+									boton[x-contador].setIluminado(true);
+									boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
+								}
+								else
+								{
+									bandera++;
+								}
+							}
+							
+							contador+=10;
+						}
+					}
 				}
-			
-			
 			}
 		}
 		
 		
-		
-
 		if(bandera==0)
 		{
 			es_posible_colocar = true;
@@ -376,31 +344,24 @@ public class Tablero extends JPanel{
 		}
 		else
 		{
-			
 			for(int x = 0; x<100;x++)
 			{
 				
-					if(boton[x].getIluminado())
-					{
-						boton[x].setIluminado(false);
-					}
+				if(boton[x].getIluminado())
+				{
+					boton[x].setIluminado(false);
+				}
 				
 			}
 			
-			
-			
 			return false;
 		}
-		
-		
 	}
 	
 	public void barcosHorizontalBorrar(Boton objeto)
 	{
-		
 		for(int x=0;x<100;x++)
-		{
-			
+		{			
 			if(!boton[x].getActivo())
 			{
 			boton[x].setBackground(new JButton().getBackground());
@@ -408,8 +369,6 @@ public class Tablero extends JPanel{
 			}
 				
 		}
-
-		
 	}
 	
 	public void elegirCasilla(int casilla)
@@ -419,29 +378,29 @@ public class Tablero extends JPanel{
 		if(casilla > -1)
 		{
 			
-				if(boton[casilla].getActivo()) //comprobar si hay barco en esa casilla
-				{
-					boton[casilla].setColorTocado();
-					boton[casilla].setTocado(true);
-				}
-				else if(!boton[casilla].getActivo()) //comprobar si no hay barco en esa casilla
-				{
-					boton[casilla].setColorAgua();
-				}
-				
-				terminarElegirCasilla();
+			//comprobar si hay barco en esa casilla
+			if(boton[casilla].getActivo()) 
+			{
+				boton[casilla].setColorTocado();
+				boton[casilla].setTocado(true);
+			}
+			//comprobar si no hay barco en esa casilla
+			else if(!boton[casilla].getActivo()) 
+			{
+				boton[casilla].setColorAgua();
+			}
+			
+			terminarElegirCasilla();
 		}
 		else
 		{
-				for(int x = 0; x<100; x++)
-				{
-					
-					boton[x].addMouseListener(e3);
-					
-				}
+			for(int x = 0; x<100; x++)
+			{
+				
+				boton[x].addMouseListener(e3);
+				
+			}
 		}
-		
-		
 	}
 	
 	public void terminarElegirCasilla()
@@ -473,11 +432,9 @@ public class Tablero extends JPanel{
 					
 				}
 			}
-			
 		}
 		
 		//-----------------------------
-		
 		for(int i = 0; i<5;i++)
 		{
 			if(hundir[i]==0)
@@ -494,9 +451,7 @@ public class Tablero extends JPanel{
 				}
 			}
 		}
-		
 		//----------------------------------
-		
 		
 		proceso = 2;
 		
@@ -504,16 +459,10 @@ public class Tablero extends JPanel{
 	
 	
 	//--------CLASES INTERNAS
-	
-	
-	
-	
 	class EanadirBarco implements MouseListener
 	{
-		
 		int n_barcos = 0;
 
-		
 		//---METODOS PROPIOS----
 		
 		public void barcosHorizontal(Boton objeto)
@@ -539,67 +488,67 @@ public class Tablero extends JPanel{
 				{
 					for(int y=0;y<=10-n_barcos;y++)
 					{
-						
-								if(objeto==boton[x] && numero==y)
+						if(objeto==boton[x] && numero==y)
+						{
+							for(int w = 0;w<n_barcos;w++)
+							{
+								if(contador==0)
 								{
-									
-									for(int w = 0;w<n_barcos;w++)
+									if(!boton[x+contador].getActivo())
 									{
-										
-										if(contador==0)
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionVerde();
-												boton[x+contador].setIluminado(true);
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
-											}
-											else
-											{
-												bandera++;
-											}
-											
-										}
-										else if(contador==n_barcos-1)
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionVerde();
-												boton[x+contador].setIluminado(true);
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));	
-											}
-											else
-											{
-												bandera++;
-											}
-										}
-										else
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionVerde();
-												boton[x+contador].setIluminado(true);
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
-											}
-											else
-											{
-												bandera++;
-											}
-										}
-										
-										if(bandera==0)
-										{
-											es_posible_colocar = true;
-										}
-										else
-										{
-											es_posible_colocar = false;
-										}
-										
-										contador++;
+										boton[x+contador].setColorEleccionVerde();
+										boton[x+contador].setIluminado(true);
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
+									}
+									else
+									{
+										bandera++;
 									}
 									
 								}
+								else if(contador==n_barcos-1)
+								{
+									if(!boton[x+contador].getActivo())
+									{
+										boton[x+contador].setColorEleccionVerde();
+										boton[x+contador].setIluminado(true);
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));	
+									}
+									else
+									{
+										bandera++;
+									}
+								}
+								else
+								{
+									if(!boton[x+contador].getActivo())
+									{
+										boton[x+contador].setColorEleccionVerde();
+										boton[x+contador].setIluminado(true);
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
+									}
+									else
+									{
+										bandera++;
+									}
+								}
+								
+								if(bandera==0)
+								{
+									es_posible_colocar = true;
+								}
+								else
+								{
+									es_posible_colocar = false;
+								}
+								
+								contador++;
+							}
+							
+						}
 						
 					}
 				}
@@ -611,57 +560,54 @@ public class Tablero extends JPanel{
 					for(int y=11-n_barcos;y<10;y++)
 					{
 						
-								if(objeto==boton[x] && numero==y)
+						if(objeto==boton[x] && numero==y)
+						{
+							
+							for(int w = 0;w<10-y;w++)
+							{
+								
+								if(contador==0)
 								{
-									
-									for(int w = 0;w<10-y;w++)
+									if(!boton[x+contador].getActivo())
 									{
-										
-										if(contador==0)
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionRojo();
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
-											}
-											
-										}
-										else if(contador==n_barcos-2)
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionRojo();
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));		
-											}
-										
-										}
-										else
-										{
-											if(!boton[x+contador].getActivo())
-											{
-												boton[x+contador].setColorEleccionRojo();
-												boton[x+contador].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
-											}
-										
-											
-										}
-									
-										contador++;
+										boton[x+contador].setColorEleccionRojo();
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));	
 									}
 									
 								}
+								else if(contador==n_barcos-2)
+								{
+									if(!boton[x+contador].getActivo())
+									{
+										boton[x+contador].setColorEleccionRojo();
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));		
+									}
+								
+								}
+								else
+								{
+									if(!boton[x+contador].getActivo())
+									{
+										boton[x+contador].setColorEleccionRojo();
+										boton[x+contador].setBorder(
+											BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));	
+									}
+									
+								}
+							
+								contador++;
+							}
+									
+						}
 						
 					}
 				}
-				
-				
-			}
-	
 					
 			}
-			
-			
-			
+					
+			}
 			
 		}
 		
@@ -683,65 +629,68 @@ public class Tablero extends JPanel{
 					for(int y=n_barcos-1;y<10;y++)
 					{
 						
-								if(objeto==boton[x] && linea==y)
+						if(objeto==boton[x] && linea==y)
+						{
+							
+							for(int w = 0;w<n_barcos;w++)
+							{
+							
+								if(contador==0)
 								{
-									
-									for(int w = 0;w<n_barcos;w++)
+									if(!boton[x-contador].getActivo())
 									{
-									
-										if(contador==0)
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionVerde();
-												boton[x-contador].setIluminado(true);
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));	
-											}
-											else
-											{
-												bandera++;
-											}
-										}
-										else if(contador/10==n_barcos-1)
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionVerde();
-												boton[x-contador].setIluminado(true);
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
-											}
-											else
-											{
-												bandera++;
-											}
-										}
-										else
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionVerde();
-												boton[x-contador].setIluminado(true);
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
-											}
-											else
-											{
-												bandera++;
-											}
-										}
-										
-										if(bandera==0)
-										{
-											es_posible_colocar = true;
-										}
-										else
-										{
-											es_posible_colocar = false;
-										}
-										
-										contador+=10;
+										boton[x-contador].setColorEleccionVerde();
+										boton[x-contador].setIluminado(true);
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));	
 									}
-									
+									else
+									{
+										bandera++;
+									}
 								}
+								else if(contador/10==n_barcos-1)
+								{
+									if(!boton[x-contador].getActivo())
+									{
+										boton[x-contador].setColorEleccionVerde();
+										boton[x-contador].setIluminado(true);
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
+									}
+									else
+									{
+										bandera++;
+									}
+								}
+								else
+								{
+									if(!boton[x-contador].getActivo())
+									{
+										boton[x-contador].setColorEleccionVerde();
+										boton[x-contador].setIluminado(true);
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
+									}
+									else
+									{
+										bandera++;
+									}
+								}
+								
+								if(bandera==0)
+								{
+									es_posible_colocar = true;
+								}
+								else
+								{
+									es_posible_colocar = false;
+								}
+								
+								contador+=10;
+							}
+							
+						}
 						
 					}
 				}
@@ -752,51 +701,50 @@ public class Tablero extends JPanel{
 					for(int y=n_barcos;y>=0;y--)
 					{
 						
-								if(objeto==boton[x] && linea==y)
+						if(objeto==boton[x] && linea==y)
+						{
+							
+							for(int w = y;w>=0;w--)
+							{
+								
+								if(contador==0)
 								{
-									
-									for(int w = y;w>=0;w--)
+									if(!boton[x-contador].getActivo())
 									{
-										
-										if(contador==0)
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionRojo();
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));
-											}
-										}
-										else if(linea==1)
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionRojo();
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
-											}
-										}
-										else
-										{
-											if(!boton[x-contador].getActivo())
-											{
-												boton[x-contador].setColorEleccionRojo();
-												boton[x-contador].setBorder(BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));	
-											}
-										}
-										
-										contador+=10;
+										boton[x-contador].setColorEleccionRojo();
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));
 									}
-									
 								}
-						
+								else if(linea==1)
+								{
+									if(!boton[x-contador].getActivo())
+									{
+										boton[x-contador].setColorEleccionRojo();
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));	
+									}
+								}
+								else
+								{
+									if(!boton[x-contador].getActivo())
+									{
+										boton[x-contador].setColorEleccionRojo();
+										boton[x-contador].setBorder(
+											BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));	
+									}
+								}
+								
+								contador+=10;
+							}
+						}
 					}
 				}
 			}
 		}
 		
-		
 		public void barcosHorizontalBorrar(Boton objeto)
 		{
-			
 			for(int x=0;x<100;x++)
 			{
 				
@@ -807,8 +755,6 @@ public class Tablero extends JPanel{
 				}
 					
 			}
-
-			
 		}
 		
 		
@@ -837,29 +783,26 @@ public class Tablero extends JPanel{
 		public void mouseClicked(MouseEvent arg0) 
 		{
 		
-				if(es_posible_colocar)
+			if(es_posible_colocar)
+			{
+			
+				for(int x = 0; x<100;x++)
 				{
-				
-					for(int x = 0; x<100;x++)
+					
+					if(boton[x].getIluminado())
 					{
-						
-							if(boton[x].getIluminado())
-							{
-								boton[x].setActivo(true);
-								boton[x].setColorActivo();
-								boton[x].setIdBarco(contador_barco);
-								//boton[x].setText(""+contador_barco);
-							}
-						
+						boton[x].setActivo(true);
+						boton[x].setColorActivo();
+						boton[x].setIdBarco(contador_barco);
+						//boton[x].setText(""+contador_barco);
 					}
-		
-					contador_barco++;
-					terminarAnadirBarco();
-									
-				
-			}
-			
-			
+					
+				}
+	
+				contador_barco++;
+				terminarAnadirBarco();
+
+		}
 
 		}
 		
@@ -867,7 +810,6 @@ public class Tablero extends JPanel{
 		public void mouseEntered(MouseEvent e) {
 		
 			Boton objeto = (Boton) e.getSource();
-			
 			
 			if(rotacion == 0)
 			{
@@ -878,11 +820,9 @@ public class Tablero extends JPanel{
 			barcosVertical(objeto);
 			}
 			
-			
-			
 		}
 
-		@Override //---ESTE ES EL METODO QUE DA PROBLEMAS AL SALIR DEL ARRAY
+		@Override 
 		public void mouseExited(MouseEvent e) {
 
 			Boton objeto = (Boton) e.getSource();
@@ -963,10 +903,7 @@ public class Tablero extends JPanel{
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			
-		
-			
-			
+	
 		}
 
 		@Override
@@ -1017,10 +954,7 @@ public class Tablero extends JPanel{
 				{
 					boton.setColorSeleccion();
 				}
-				
-			
-			
-			
+		
 		}
 
 		@Override
@@ -1034,8 +968,6 @@ public class Tablero extends JPanel{
 			{
 				boton.setColorDefault();
 			}
-			
-			
 			
 		}
 
