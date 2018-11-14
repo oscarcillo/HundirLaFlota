@@ -4,7 +4,7 @@
 
 [Descargar Ejecutable](https://github.com/oscarcillo/HundirLaFlota/raw/master/juego_compilado/Hundir_La_Flota_2.0.rar) - Descargar archivo ejecutable comprimido para jugar.
 
-<div style="margin: auto">
+<div align="center">
 
 ![Hundir la flota](https://github.com/oscarcillo/HundirLaFlota/blob/master/imagenes/hundirlaflotaimagen.png)
 
