@@ -29,7 +29,6 @@ public class Tablero2_Copia extends JPanel{
 
 	Tablero2_Copia(boolean jugador)
 	{
-		
 		//--CARACTERISTICAS DEL TABLERO
 		GridLayout layout = new GridLayout(11,11);
 		setLayout(layout);
@@ -40,23 +39,15 @@ public class Tablero2_Copia extends JPanel{
 		
 		//--CREAR TABLERO
 		crearTablero();
-		
-		
-		
-		
-		
 	}
-	
 	
 	//----METODOS----
 	
 	public void crearTablero()
 	{
 		//-----CREAR LAS LETRAS
-		
 		for(int x = 0;x<11;x++)
 		{
-			
 			switch(x)
 			{
 				case 0: letra[x] = new JLabel("", SwingConstants.CENTER);break;
@@ -75,13 +66,11 @@ public class Tablero2_Copia extends JPanel{
 			add(letra[x]);
 		}
 		
-		
 		//------CREAR LOS NUMEROS Y BOTONES
 		int contador = 0;
 		
 		for(int x = 0;x<100;x++)
 		{
-			
 			if(x%10==0 && x!=99)
 			{
 				numero[contador] = new JLabel(""+(contador+1), SwingConstants.CENTER);
@@ -91,45 +80,29 @@ public class Tablero2_Copia extends JPanel{
 			
 				boton[x] = new Boton(""+x);
 				boton[x].setSize(25, 25);
-				
-			
-				add(boton[x]);
-			
-		}
-	
-	}
 
+				add(boton[x]);
+		}
+	}
+	
 
 	public void anadirBarco3()
 	{
-		
 		for(int x = 0; x<100; x++)
 		{
 			boton[x].addMouseListener(new EanadirBarco());
 			boton[x].addKeyListener(new EcambiarRotacion());
-		}
-		
+		}	
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	//--------CLASES INTERNAS
-	
-	
 	
 	
 	class EanadirBarco implements MouseListener
 	{
-		
 		//---METODOS PROPIOS----
-		
 		public void barcosHorizontal(Boton objeto)
-		{
-			
+		{			
 			for(int x=0;x<100;x++)
 			{
 				
@@ -141,65 +114,73 @@ public class Tablero2_Copia extends JPanel{
 				if(objeto==boton[x] && numero<=7)
 				{
 					boton[x].setColorEleccionVerde();
-						boton[x].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
 						
 					boton[x+1].setColorEleccionVerde();
-						boton[x+1].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));
+						boton[x+1].setBorder(
+						BorderFactory.createMatteBorder(2, 0, 2, 0, Color.black));
 						
 					boton[x+2].setColorEleccionVerde();
-						boton[x+2].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
+						boton[x+2].setBorder(
+						BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
 				}
 				else if(objeto==boton[x] && numero==8)
 				{
 					boton[x].setColorEleccionRojo();
-						boton[x].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
 					
 					boton[x+1].setColorEleccionRojo();
-						boton[x+1].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
+						boton[x+1].setBorder(
+						BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
 				}
 				else if(objeto==boton[x] && numero==9)
 				{
 					boton[x].setColorEleccionRojo();
-						boton[x].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-				}
-					
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+				}	
 			}
 		}
 		
 		
 		public void barcosVertical(Boton objeto)
 		{
-			
 			for(int x=0;x<100;x++)
 			{
-				
 				int linea = x/10;
-				linea = linea * 10;
-						
+				linea = linea * 10;		
 				
 				if(objeto==boton[x] && linea>=3)
 				{
 					boton[x].setColorEleccionVerde();
-						boton[x].setBorder(BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(0, 2, 2, 2, Color.black));
 						
 					boton[x-10].setColorEleccionVerde();
-						boton[x-10].setBorder(BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
+						boton[x-10].setBorder(
+						BorderFactory.createMatteBorder(0, 2, 0, 2, Color.black));
 						
 					boton[x-20].setColorEleccionVerde();
-						boton[x-20].setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));
+						boton[x-20].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 0, 2, Color.black));
 				}
 				else if(objeto==boton[x] && linea==2)
 				{
 					boton[x].setColorEleccionRojo();
-						boton[x].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 2, 0, Color.black));
 					
 					boton[x-10].setColorEleccionRojo();
-						boton[x-10].setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
+						boton[x-10].setBorder(
+						BorderFactory.createMatteBorder(2, 0, 2, 2, Color.black));
 				}
 				else if(objeto==boton[x] && linea==1)
 				{
 					boton[x].setColorEleccionRojo();
-						boton[x].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+						boton[x].setBorder(
+						BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 				}
 					
 			}
@@ -207,11 +188,9 @@ public class Tablero2_Copia extends JPanel{
 		
 		
 		public void barcosHorizontalRojo(Boton objeto)
-		{
-			
+		{		
 			for(int x=0;x<100;x++)
 			{
-				
 				int linea = x/10;
 				linea = linea * 10 + 10;
 				
@@ -235,10 +214,8 @@ public class Tablero2_Copia extends JPanel{
 		
 		public void barcosVerticalRojo(Boton objeto)
 		{
-			
 			for(int x=0;x<100;x++)
-			{
-				
+			{	
 				int linea = x/10;
 				linea = linea * 10 + 10;
 				
@@ -252,28 +229,21 @@ public class Tablero2_Copia extends JPanel{
 						
 					boton[x-20].setBackground(new JButton().getBackground());
 						boton[x-20].setBorder(new JButton().getBorder());
-				}
-					
-			}
-			
+				}	
+			}	
 		}
-
 		
-		//--------------------------
-		
-		
+		//--------------------------	
 
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 		
 			Boton objeto = (Boton) e.getSource();
-			
 			
 			if(rotacion == 0)
 			{
@@ -282,9 +252,7 @@ public class Tablero2_Copia extends JPanel{
 			else if(rotacion == 1)
 			{
 			barcosVertical(objeto);
-			}
-			
-			
+			}	
 			
 		}
 
@@ -314,8 +282,7 @@ public class Tablero2_Copia extends JPanel{
 			// TODO Auto-generated method stub
 			
 		}
-		
-		
+
 	}
 	
 	////---------------------------------------------------------------------------
@@ -328,8 +295,6 @@ public class Tablero2_Copia extends JPanel{
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Auto-generated method stub
-			
-		
 		}
 
 		@Override
@@ -353,16 +318,11 @@ public class Tablero2_Copia extends JPanel{
 				barcosHorizontal((Boton)e.getSource());
 			}
 			
-			
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			
-		
-			
-			
 		}
 		
 	}
