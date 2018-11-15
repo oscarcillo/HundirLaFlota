@@ -16,13 +16,13 @@ El juego termina cuando el jugar hunde todos los barcos del contrincante, o vice
 
 </div>
 
-##Código fuente
+## Código fuente
 
 Clases Java que contienen todo el código para hacer funcionar el juego.
 
 [Enlace al Código Fuente](https://github.com/oscarcillo/HundirLaFlota/tree/master/src/Hundir_La_Flota_20) 
 
-##Descarga
+## Descarga
 
 El siguiente enlace descarga un archivo .rar con el archivo ejecutable en su interior. Tras descargarlo, descomprimelo y ejecutalo para jugar:
 
