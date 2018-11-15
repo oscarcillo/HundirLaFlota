@@ -1,6 +1,6 @@
 # Juego "Hundir La Flota" en Java
 
-Repositorio que contiene todo el código fuente del juego y tabmién un ejecutable para poder jugarlo.
+Repositorio que contiene todo el código fuente del juego y también un ejecutable para poder jugarlo.
 
 ## Funcionamiento
 
